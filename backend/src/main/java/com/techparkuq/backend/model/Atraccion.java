@@ -3,6 +3,7 @@ package com.techparkuq.backend.model;
 import com.techparkuq.backend.enums.EstadoAtraccion;
 import com.techparkuq.backend.enums.TipoAtraccion;
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "atracciones")
@@ -44,6 +45,7 @@ public class Atraccion {
     private String motivoCierre;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "zona_id", nullable = false)
     private Zona zona;
 

@@ -3,6 +3,7 @@ package com.techparkuq.backend.model;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "zonas")
@@ -18,8 +19,10 @@ public class Zona {
     @Column(nullable = false)
     private int capacidadMaxima;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "zona", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Atraccion> Atracciones = new ArrayList<>();
+    private List<Atraccion> atracciones = new ArrayList<>();
+
 
     public Zona() {
     }
