@@ -32,4 +32,34 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @ExceptionHandler(RestriccionSeguridadException.class)
+    public ResponseEntity<Map<String, Object>> manejarRestriccionSeguridad(RestriccionSeguridadException ex) {
+        Map<String, Object> error = new HashMap<>();
+        error.put("timestamp", LocalDateTime.now());
+        error.put("mensaje", ex.getMessage());
+        error.put("status", HttpStatus.BAD_REQUEST.value());
+
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(AtraccionNoDisponibleException.class)
+    public ResponseEntity<Map<String, Object>> manejarAtraccionNoDisponible(AtraccionNoDisponibleException ex) {
+        Map<String, Object> error = new HashMap<>();
+        error.put("timestamp", LocalDateTime.now());
+        error.put("mensaje", ex.getMessage());
+        error.put("status", HttpStatus.BAD_REQUEST.value());
+
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(SaldoInsuficienteException.class)
+    public ResponseEntity<Map<String, Object>> manejarSaldoInsuficiente(SaldoInsuficienteException ex) {
+        Map<String, Object> error = new HashMap<>();
+        error.put("timestamp", LocalDateTime.now());
+        error.put("mensaje", ex.getMessage());
+        error.put("status", HttpStatus.BAD_REQUEST.value());
+
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
 }
