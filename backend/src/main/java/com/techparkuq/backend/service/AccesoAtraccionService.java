@@ -13,6 +13,8 @@ import com.techparkuq.backend.repository.AtraccionRepository;
 import com.techparkuq.backend.repository.VisitanteRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.techparkuq.backend.model.RegistroVisita;
+import java.time.LocalDateTime;
 
 @Service
 public class AccesoAtraccionService {
@@ -23,15 +25,18 @@ public class AccesoAtraccionService {
     private final AtraccionService atraccionService;
     private final VisitanteRepository visitanteRepository;
     private final AtraccionRepository atraccionRepository;
+    private final HistorialVisitasService historialVisitasService;
 
     public AccesoAtraccionService(VisitanteService visitanteService,
                                   AtraccionService atraccionService,
                                   VisitanteRepository visitanteRepository,
-                                  AtraccionRepository atraccionRepository) {
+                                  AtraccionRepository atraccionRepository,
+                                  HistorialVisitasService historialVisitasService) {
         this.visitanteService = visitanteService;
         this.atraccionService = atraccionService;
         this.visitanteRepository = visitanteRepository;
         this.atraccionRepository = atraccionRepository;
+        this.historialVisitasService = historialVisitasService;
     }
 
     @Transactional
@@ -52,6 +57,17 @@ public class AccesoAtraccionService {
 
         visitanteRepository.save(visitante);
         atraccionRepository.save(atraccion);
+        historialVisitasService.registrarVisita(
+                new RegistroVisita(
+                        visitante.getId(),
+                        visitante.getNombre(),
+                        atraccion.getId(),
+                        atraccion.getNombre(),
+                        LocalDateTime.now()
+                )
+        );
+
+
 
         return new AccesoAtraccionResponseDTO(
                 "Ingreso autorizado correctamente",
