@@ -62,4 +62,13 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(AsignacionInvalidaException.class)
+    public ResponseEntity<Map<String, Object>> manejarAsignacionInvalida(AsignacionInvalidaException ex) {
+        Map<String, Object> error = new HashMap<>();
+        error.put("timestamp", LocalDateTime.now());
+        error.put("mensaje", ex.getMessage());
+        error.put("status", HttpStatus.BAD_REQUEST.value());
+
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
 }

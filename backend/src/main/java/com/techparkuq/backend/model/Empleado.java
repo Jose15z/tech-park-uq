@@ -1,5 +1,4 @@
-package com.techparkuq.backend.model;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.techparkuq.backend.enums.TipoEmpleado;
 import jakarta.persistence.*;
 
@@ -17,20 +16,30 @@ public class Empleado {
     @Column(nullable = false, unique = true)
     private String documento;
 
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private TipoEmpleado tipoEmpleado;
 
     @ManyToOne
     @JoinColumn(name = "zona_id")
+    @JsonIgnoreProperties({"atracciones"})
     private Zona zonaAsignada;
 
     public Empleado() {
     }
 
-    public Empleado(String nombre, String documento, TipoEmpleado tipoEmpleado, Zona zonaAsignada) {
+    public Empleado(String nombre, String documento, String email, String password,
+                    TipoEmpleado tipoEmpleado, Zona zonaAsignada) {
         this.nombre = nombre;
         this.documento = documento;
+        this.email = email;
+        this.password = password;
         this.tipoEmpleado = tipoEmpleado;
         this.zonaAsignada = zonaAsignada;
     }
@@ -53,6 +62,22 @@ public class Empleado {
 
     public void setDocumento(String documento) {
         this.documento = documento;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public TipoEmpleado getTipoEmpleado() {
