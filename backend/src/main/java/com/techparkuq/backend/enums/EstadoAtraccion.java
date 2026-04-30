@@ -1,9 +1,7 @@
 package com.techparkuq.backend.enums;
 
-public enum TipoAtraccion {
-    ACUATICA,
-    MECANICA_ALTURA,
-    INFANTIL,
-    FAMILIAR,
-    EXTREMA
+public enum EstadoAtraccion {
+    ACTIVA,
+    EN_MANTENIMIENTO,
+    CERRADA
 }
