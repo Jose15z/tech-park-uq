@@ -17,7 +17,7 @@ function AtraccionesPage() {
       setAtracciones(response.data);
       setError("");
     } catch (error) {
-      setError("No se pudieron cargar las atracciones.");
+      setError("No se pudieron cargar las atracciones. Revisa que el backend esté corriendo.");
     } finally {
       setCargando(false);
     }
@@ -28,15 +28,15 @@ function AtraccionesPage() {
   }
 
   return (
-    <main className="table-page">
-      <h1>Atracciones</h1>
-      <p>Listado general de atracciones registradas en el parque.</p>
+      <main className="table-page">
+        <h1>Atracciones</h1>
+        <p>Listado general de atracciones registradas en el parque.</p>
 
-      {error && <p className="error-message">{error}</p>}
+        {error && <p className="error-message">{error}</p>}
 
-      <div className="table-wrapper">
-        <table>
-          <thead>
+        <div className="table-wrapper">
+          <table>
+            <thead>
             <tr>
               <th>Nombre</th>
               <th>Tipo</th>
@@ -45,23 +45,23 @@ function AtraccionesPage() {
               <th>Edad mínima</th>
               <th>Tiempo espera</th>
             </tr>
-          </thead>
+            </thead>
 
-          <tbody>
+            <tbody>
             {atracciones.map((atraccion) => (
-              <tr key={atraccion.id}>
-                <td>{atraccion.nombre}</td>
-                <td>{atraccion.tipo}</td>
-                <td>{atraccion.estado}</td>
-                <td>{atraccion.alturaMinima} m</td>
-                <td>{atraccion.edadMinima} años</td>
-                <td>{atraccion.tiempoEspera} min</td>
-              </tr>
+                <tr key={atraccion.id}>
+                  <td>{atraccion.nombre}</td>
+                  <td>{atraccion.tipo}</td>
+                  <td>{atraccion.estado}</td>
+                  <td>{atraccion.alturaMinima} m</td>
+                  <td>{atraccion.edadMinima} años</td>
+                  <td>{atraccion.tiempoEspera} min</td>
+                </tr>
             ))}
-          </tbody>
-        </table>
-      </div>
-    </main>
+            </tbody>
+          </table>
+        </div>
+      </main>
   );
 }
 

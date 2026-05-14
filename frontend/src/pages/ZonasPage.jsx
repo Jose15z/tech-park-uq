@@ -17,7 +17,7 @@ function ZonasPage() {
       setZonas(response.data);
       setError("");
     } catch (error) {
-      setError("No se pudieron cargar las zonas.");
+      setError("No se pudieron cargar las zonas. Revisa que el backend esté corriendo.");
     } finally {
       setCargando(false);
     }
@@ -28,34 +28,34 @@ function ZonasPage() {
   }
 
   return (
-    <main className="table-page">
-      <h1>Zonas</h1>
-      <p>Zonas registradas dentro del parque Tech-Park UQ.</p>
+      <main className="table-page">
+        <h1>Zonas</h1>
+        <p>Zonas registradas dentro del parque Tech-Park UQ.</p>
 
-      {error && <p className="error-message">{error}</p>}
+        {error && <p className="error-message">{error}</p>}
 
-      <div className="table-wrapper">
-        <table>
-          <thead>
+        <div className="table-wrapper">
+          <table>
+            <thead>
             <tr>
               <th>Nombre</th>
               <th>Capacidad máxima</th>
               <th>Cantidad de atracciones</th>
             </tr>
-          </thead>
+            </thead>
 
-          <tbody>
+            <tbody>
             {zonas.map((zona) => (
-              <tr key={zona.id}>
-                <td>{zona.nombre}</td>
-                <td>{zona.capacidadMaxima}</td>
-                <td>{zona.atracciones ? zona.atracciones.length : 0}</td>
-              </tr>
+                <tr key={zona.id}>
+                  <td>{zona.nombre}</td>
+                  <td>{zona.capacidadMaxima}</td>
+                  <td>{zona.atracciones ? zona.atracciones.length : 0}</td>
+                </tr>
             ))}
-          </tbody>
-        </table>
-      </div>
-    </main>
+            </tbody>
+          </table>
+        </div>
+      </main>
   );
 }
 
