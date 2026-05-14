@@ -1,0 +1,52 @@
+.home-container {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.hero-card {
+  width: 100%;
+  max-width: 820px;
+  padding: 48px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(23, 32, 51, 0.12);
+  text-align: center;
+}
+
+.hero-card h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.hero-card p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #526071;
+}
+
+.home-actions {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.primary-button,
+.secondary-button {
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.primary-button {
+  background: #2563eb;
+  color: white;
+}
+
+.secondary-button {
+  background: #e5eaf3;
+  color: #172033;
+}

@@ -1,0 +1,50 @@
+.table-page {
+  padding: 32px;
+}
+
+.table-page h1 {
+  margin-bottom: 8px;
+}
+
+.table-page p {
+  color: #526071;
+}
+
+.table-wrapper {
+  margin-top: 24px;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(23, 32, 51, 0.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #172033;
+  color: white;
+}
+
+th,
+td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5eaf3;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+.page-message {
+  padding: 32px;
+  font-size: 18px;
+}
+
+.error-message {
+  color: #b91c1c;
+  font-weight: 700;
+}
