@@ -23,3 +23,13 @@
   color: white;
   font-weight: 600;
 }
+
+.logout-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}

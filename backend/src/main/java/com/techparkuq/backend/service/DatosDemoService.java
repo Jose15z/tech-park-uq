@@ -152,13 +152,15 @@ public class DatosDemoService {
         ));
 
         visitanteRepository.save(new Visitante(
-                "Carlos Ramírez",
-                "100000002",
-                21,
-                1.78,
-                50000,
-                "https://example.com/carlos.jpg",
-                ticketFastPass
+                "Laura Gómez",
+                "100000001",
+                "laura@techpark.com",
+                "1234",
+                16,
+                1.62,
+                30000,
+                "https://example.com/laura.jpg",
+                ticketGeneral
         ));
 
         visitanteRepository.save(new Visitante(

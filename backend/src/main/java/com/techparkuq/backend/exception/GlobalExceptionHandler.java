@@ -33,6 +33,16 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    @ExceptionHandler(CredencialesInvalidasException.class)
+    public ResponseEntity<Map<String, Object>> manejarCredencialesInvalidas(CredencialesInvalidasException ex) {
+        Map<String, Object> error = new HashMap<>();
+        error.put("timestamp", LocalDateTime.now());
+        error.put("mensaje", ex.getMessage());
+        error.put("status", HttpStatus.UNAUTHORIZED.value());
+
+        return new ResponseEntity<>(error, HttpStatus.UNAUTHORIZED);
+    }
+
     @ExceptionHandler(RestriccionSeguridadException.class)
     public ResponseEntity<Map<String, Object>> manejarRestriccionSeguridad(RestriccionSeguridadException ex) {
         Map<String, Object> error = new HashMap<>();
